@@ -11,7 +11,7 @@ It implemetns the following design:
 
 - Forward connections from clients to gRPC servers.
 - Use Prometheus metrics to select the best server to handle a request.
-- Configure and manage gRPC servers and clients using environment variables.
+- Configure and manage gRPC server finder using environment variables.
 
 ## Installation
 
