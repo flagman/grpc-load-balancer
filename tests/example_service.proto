@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package example;
+
+service ExampleService {
+    rpc GetValue (GetValueRequest) returns (GetValueResponse) {}
+}
+
+message GetValueRequest {
+    int32 key = 1;
+}
+
+message GetValueResponse {
+    string value = 1;
+}
