@@ -4,10 +4,13 @@ on:
   push:
     branches:
       - main  # or the name of your default branch
+    
+    
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, '[update] bump version')"
     steps:
     - name: Check out repository
       uses: actions/checkout@v2

@@ -2,7 +2,9 @@
 
 `grpc_load_balancer` is a Python package that allows you to easily configure and manage separate gRPC server and client instances using a metrics-based load balancing approach. This is useful when you have multiple services running and want to distribute the load efficiently among them. The package includes a connection forwarder, a metrics-based server finder, and a configuration loader.
 It implemetns the following design:
-![Design](https://grpc.io/img/image_1.png)
+
+<img src="imgs/design.jpg" width="50%" height="50%">
+
 
 
 ## Features
