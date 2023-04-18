@@ -1,4 +1,6 @@
+import re
 import requests
+
 from typing import Callable, Dict, List, Optional, Tuple, Union
 
 
@@ -46,7 +48,7 @@ class MetricsBasedServerFinder:
             return None
 
     def _parse_prometheus_metrics(self, response_text: str) -> Optional[float]:
-        for line in response_text.split("\n"):
-            if line.startswith(self.metrics_name):
-                return float(line[len(self.metrics_name):].strip().split(" ")[0])
-        return None
+        pattern = rf"{self.metrics_name}(?:\s*{{[^}}]*}})?\s+(\d+\.\d+)"
+        match = re.search(pattern, response_text)
+
+        return float(match.group(1)) if match else None
