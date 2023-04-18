@@ -30,12 +30,12 @@ pip install prometheus-client
 ## Usage 
 ## Configuring and running a gRPC server
 
-Here's a simple example of how to use grpc_connection_forwarder with a gRPC server and prometeus-client:
+Here's a simple example of how to use grpc_load_balancer with a gRPC server and prometeus-client:
 
 # Import the required modules:
 ```python 
 import grpc
-from grpc_connection_forwarder import GrpcConnnectionForwarder
+from grpc_load_balancer import GrpcConnnectionForwarder
 from prometheus_client import start_http_server, Gauge
 ```
 
@@ -43,8 +43,7 @@ from prometheus_client import start_http_server, Gauge
 # Initialize your gRPC server(s)
 ```python
     grpc_server = create_example_grpc_server() # implement this function yourself
-    connection_counter = Gauge(
-        f'connections_num', 'Number of connections forwarded')
+    connection_counter = Gauge('connections_num', 'Number of connections forwarded')
     forwarder = GrpcConnnectionForwarder(
         grpc_server, callback=lambda value: connection_counter.set(value)
     )
@@ -62,7 +61,7 @@ from prometheus_client import start_http_server, Gauge
 # Import the required modules:    
 ```python
 import grpc
-from grpc_connection_forwarder import EnvConfigLoader, MetricsBasedServerFinder
+from grpc_load_balancer import EnvConfigLoader, MetricsBasedServerFinder
 ```
 
 
@@ -96,6 +95,7 @@ If you have any problems with `grpc_load_balancer`, please open an issue on GitH
 Also, you can check [tests/test_grpc_load_balancer.py](tests/test_grpc_load_balancer.py) for more information.
 
 ## Contributing
+
 We welcome contributions to `grpc_load_balancer`. If you find a bug or want to propose a new feature, please open a GitHub issue or submit a pull request.
 
 ## License
