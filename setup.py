@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="grpc_load_balancer",
-    version="0.0.2",
+    version="0.0.3",
     author="Pavel Malay",
     author_email="flagmansupport@gmail.com",
     description="A small toolset to implement load balancing for gRPC services",
